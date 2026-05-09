@@ -35,7 +35,7 @@ public class AutoAnswerService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        startForeground(NOTIFICATION_ID, getNotification("Auto Answer Service is active"));
+        startForeground(NOTIFICATION_ID, getNotification(getString(R.string.service_active)));
 
         if (intent != null && intent.getAction() != null) {
             String action = intent.getAction();
@@ -113,7 +113,7 @@ public class AutoAnswerService extends Service {
                 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE);
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("Auto Answer Enabled")
+                .setContentTitle(getString(R.string.status_enabled))
                 .setContentText(contentText)
                 .setSmallIcon(android.R.drawable.ic_menu_call)
                 .setContentIntent(pendingIntent)

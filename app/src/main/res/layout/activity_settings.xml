@@ -1,74 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@color/primary_dark"
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/settings_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="Settings"
+        android:textColor="@color/white"
         android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_marginBottom="32dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Audio File Configuration"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="?attr/colorPrimary" />
-
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/audio_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="12dp"
-        app:cardElevation="2dp">
+        android:layout_marginTop="32dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintTop_toBottomOf="@id/settings_title">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Current Audio File:"
+                android:text="Audio Configuration"
+                android:textColor="@color/accent_vibrant"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Selected Audio File:"
+                android:textColor="@color/text_secondary"
                 android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/selected_file_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="No file selected"
-                android:textSize="16sp"
                 android:layout_marginTop="4dp"
-                android:textColor="?android:attr/textColorSecondary"
                 android:ellipsize="middle"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:text="No file selected"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_pick_file"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
                 android:text="Choose Audio File"
-                android:layout_marginTop="16dp"
-                style="@style/Widget.Material3.Button.OutlinedButton" />
+                app:cornerRadius="12dp" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Supported formats: MP3, WAV, M4A"
-        android:textSize="12sp"
-        android:layout_marginTop="8dp"
-        android:alpha="0.7" />
+        android:layout_marginTop="16dp"
+        android:alpha="0.6"
+        android:text="Supported formats: MP3, WAV, M4A.\nThe audio will play automatically to the caller after the call is answered."
+        android:textColor="@color/text_secondary"
+        android:textSize="13sp"
+        app:layout_constraintTop_toBottomOf="@id/audio_card" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

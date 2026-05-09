@@ -1,82 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center_horizontal">
+    android:background="@color/primary_dark"
+    android:padding="24dp">
 
     <TextView
         android:id="@+id/app_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:text="Auto Answer"
-        android:textSize="32sp"
+        android:textColor="@color/white"
+        android:textSize="36sp"
         android:textStyle="bold"
-        android:layout_marginTop="48dp"
-        android:textColor="?attr/colorPrimary" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/status_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="4dp">
+        android:layout_marginTop="60dp"
+        app:cardBackgroundColor="@color/card_background"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:layout_constraintTop_toBottomOf="@id/app_title"
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="24dp"
-            android:gravity="center">
+            android:padding="32dp">
 
-            <TextView
+            <View
                 android:id="@+id/status_indicator"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@android:color/holo_red_dark" />
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:background="@drawable/circle_indicator"
+                android:backgroundTint="@color/status_disabled" />
 
             <TextView
                 android:id="@+id/status_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:text="Auto Answer Disabled"
-                android:textSize="18sp"
-                android:layout_marginTop="12dp"
-                android:textStyle="italic" />
+                android:textColor="@color/text_secondary"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_start"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="60dp"
         android:text="Start Auto Answer"
-        android:layout_marginTop="48dp"
-        app:cornerRadius="12dp" />
+        android:textSize="18sp"
+        app:cornerRadius="16dp"
+        app:layout_constraintTop_toBottomOf="@id/status_card"
+        app:rippleColor="@color/white" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_stop"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:text="Stop Auto Answer"
+        android:layout_height="72dp"
         android:layout_marginTop="16dp"
+        android:text="Stop Auto Answer"
+        android:textSize="18sp"
+        app:cornerRadius="16dp"
         style="@style/Widget.Material3.Button.TonalButton"
-        app:cornerRadius="12dp" />
+        app:layout_constraintTop_toBottomOf="@id/btn_start" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_settings"
+        style="@style/Widget.Material3.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
-        style="@style/Widget.Material3.Button.TextButton"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:text="Open Settings"
+        android:textColor="@color/accent_vibrant"
+        app:icon="@android:drawable/ic_menu_preferences"
+        app:iconTint="@color/accent_vibrant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
