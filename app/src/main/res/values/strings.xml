@@ -12,4 +12,13 @@
     <string name="supported_formats">Supported formats: MP3, WAV, M4A</string>
     <string name="service_active">Auto Answer Service is active</string>
     <string name="channel_name">Auto Answer Channel</string>
+
+    <!-- Navigation and Menu Strings (Required by existing layouts) -->
+    <string name="nav_header_title">Auto Answer</string>
+    <string name="nav_header_subtitle">Automated Call Management</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About</string>
+    <string name="help_content">How to use Auto Answer:\n\n1. Select an audio file in Settings.\n2. Tap Start Auto Answer.\n3. Incoming calls will be picked up automatically.</string>
+    <string name="about_content">Auto Answer v1.0\n\nA modern tool for automated call handling.\n\nDeveloped by Antigravity.</string>
 </resources>
