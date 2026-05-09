@@ -1,0 +1,172 @@
+create an android application which is basically a "Auto Answer incoming calls"
+The app name is "Auto Answer"
+On button click of "Start Auto Answer", the app has to start auto answering incoming calls
+On button click of "Stop Auto Answer", the app has to stop auto answering incoming calls
+Auto answering should play a audio file saved locally.  This file should be configurable in Setting page
+develop the app in java (not kotlin)
+
+Give it as a single prompt to give to an agent to achieve this
+===================================================================================================
+The chatgpt output from above, use that to give prompt inside IDE
+
+
+Create a complete Android application in Java named **“Auto Answer”** (NOT Kotlin). The app should automatically answer incoming phone calls and play a configurable local audio file to the caller after the call is answered.
+
+Requirements:
+
+1. Technology Stack
+
+* Use Java only
+* Android Studio project
+* Target latest stable Android SDK
+* Use Gradle
+* Follow modern Android architecture and runtime permission handling
+
+2. App Features
+
+Main Screen:
+
+* App title: “Auto Answer”
+* Two buttons:
+
+  * “Start Auto Answer”
+  * “Stop Auto Answer”
+* Show current status:
+
+  * “Auto Answer Enabled”
+  * “Auto Answer Disabled”
+
+Behavior:
+
+* When user taps “Start Auto Answer”:
+
+  * Enable auto answering of incoming calls
+  * Persist enabled state using SharedPreferences
+* When user taps “Stop Auto Answer”:
+
+  * Disable auto answering
+  * Persist disabled state
+
+Incoming Call Handling:
+
+* Detect incoming calls using BroadcastReceiver and TelephonyManager
+* Automatically answer incoming calls when auto-answer is enabled
+* After answering:
+
+  * Play a locally stored audio file to the caller
+  * Audio should play through call audio path (speaker/microphone handling as appropriate)
+* Ensure playback starts automatically after call pickup
+* Stop playback when call ends
+
+Settings Screen:
+
+* Add a Settings page accessible from toolbar/menu
+* Allow user to:
+
+  * Choose audio file from device storage
+  * Save selected file path/URI using SharedPreferences
+  * Display currently selected audio file
+* Support common formats:
+
+  * MP3
+  * WAV
+  * M4A
+
+Permissions:
+Implement proper runtime permission handling for:
+
+* READ_PHONE_STATE
+* ANSWER_PHONE_CALLS
+* READ_EXTERNAL_STORAGE (or scoped storage equivalent)
+* RECORD_AUDIO if needed
+* FOREGROUND_SERVICE if required
+
+Foreground Service:
+
+* Use a foreground service for reliable background execution
+* Persistent notification when auto-answer is enabled
+* Notification should include:
+
+  * App name
+  * Current status
+
+Call Answering:
+
+* Use TelecomManager.acceptRingingCall() where supported
+* Handle Android version compatibility gracefully
+* Add proper error handling/logging
+
+Audio Playback:
+
+* Use MediaPlayer
+* Play selected audio automatically after answering
+* Release MediaPlayer resources properly
+* Handle missing/invalid audio file cases gracefully
+
+UI/UX:
+
+* Simple modern Material Design UI
+* Green indicator when enabled
+* Red indicator when disabled
+* Disable Start button when already enabled
+* Disable Stop button when already disabled
+
+Persistence:
+
+* Persist:
+
+  * Auto-answer enabled state
+  * Selected audio file URI/path
+
+Project Structure:
+Provide complete Android Studio project with:
+
+* MainActivity.java
+* SettingsActivity.java
+* CallReceiver.java
+* AutoAnswerService.java
+* AudioPlayerManager.java
+* Permission handling classes/utilities
+* AndroidManifest.xml
+* Layout XML files
+* Gradle files
+
+Manifest Requirements:
+Include all required:
+
+* permissions
+* services
+* receivers
+* intent filters
+
+Implementation Details:
+
+* Use BroadcastReceiver for PHONE_STATE changes
+* Start foreground service when auto-answer enabled
+* Service should monitor and manage call answering state
+* Handle edge cases:
+
+  * No audio selected
+  * Permission denied
+  * Multiple incoming calls
+  * App killed/restarted
+  * Device reboot persistence optional
+
+Important:
+
+* Provide COMPLETE runnable source code
+* No pseudo-code
+* Include imports
+* Include comments explaining important logic
+* Ensure code compiles successfully
+* Use Java everywhere
+* Do not use Kotlin at all
+
+Additionally:
+
+* Include step-by-step setup instructions
+* Include how to test on a real Android device
+* Mention Android restrictions regarding automatic call answering on newer Android versions
+* Suggest any required Accessibility Service or default dialer approach if necessary for newer Android versions
+
+Generate the FULL project code with all files.
